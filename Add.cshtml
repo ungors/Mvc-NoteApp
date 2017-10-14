@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Add</title>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel panel-heading">
+            <h3>Add Note</h3>
+        </div>
+        <div class="panel panel-body">
+            @using (Html.BeginForm())
+            { 
+                <div class="form-group">
+                    <label>Explanation</label>
+                    @Html.TextArea("Explanation", null, new { @class = "form-control" })
+                </div>
+
+                <input type="submit" value="Save" class="btn btn-primary" />
+                @Html.ActionLink("Notes", "Index", null, new { @class="btn btn-success"})
+            }
+        </div>
+    </div>
+</body>
+</html>

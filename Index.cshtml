@@ -1,0 +1,81 @@
+﻿@model IEnumerable<TakeNote.Models.Note>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel panel-heading">
+            <h3>Notes</h3>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("New Note", "Add", null, new { @class="btn btn-primary"})
+            <hr />
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th style="width:3%;"></th>
+                        <th style="width:55%;">Explanation</th>
+                        <th style="width:30%;">Upload Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        if (item.Isdo)
+                        {
+                            <tr class="success">
+                                <td>
+                                    @if (item.Isdo)
+                                    {
+                                        <span class="glyphicon glyphicon-check"></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    }
+                                </td>
+                                <td>
+                                    @item.Explanation
+                                </td>
+                                <td>
+                                    @item.UploadDate
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr class="warning">
+                                <td>
+                                    @if (item.Isdo)
+                                    {
+                                        <span class="glyphicon glyphicon-check"></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    }
+                                </td>
+                                <td>
+                                    @item.Explanation
+                                </td>
+                                <td>
+                                    @item.UploadDate
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+                </table>
+        </div>
+    </div>
+</body>
+</html>
